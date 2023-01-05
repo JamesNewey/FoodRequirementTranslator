@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import IProfile from './common';
 import * as constants from './constants';
+import { UserContext } from './UserContext';
 
 export default function Translate()
 {
     const { t } = useTranslation();
 
-    const user:IProfile = JSON.parse(localStorage.user);
+    // const user:IProfile = JSON.parse(localStorage.user);
+
+    const user = useContext(UserContext);
+
+    console.log(user);
 
     const handleChange = (event:React.ChangeEvent<HTMLSelectElement>) => {
         setLanguage(event.target.value);
@@ -29,11 +34,11 @@ export default function Translate()
             </div>
             <br/>
             <div>
-            {user.allergies != null && (
+            {user != null && user.allergies != null && (
                 <div style={{fontSize:"200%"}}>
                     <div>{t("allergyIntro", langTarget)}:</div>
                     {user.allergies.map((allergy:string) => (
-                        <div>{t(allergy, langTarget)}</div>
+                        <div key={allergy}>{t(allergy, langTarget)}</div>
                     ))}
                 </div>
             )}

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Routes, Route, Link, Outlet, useNavigate, useMatch } from 'react-router-dom';
 
+import { UserContext } from './UserContext';
 import IProfile from './common';
 
-import SetupLang from './setupLang';
+import SetupLang from './SetupLang';
 import SetupAllergies from './setupAllergies';
 
 import * as constants from './constants';
@@ -20,6 +21,8 @@ export default function Setup()
 
     //let { path, url } = useMatch();
 
+    const { updateUser } = useContext(UserContext);
+
     function handleAllergyChange(add:boolean, allergy:string)
     {
       let updatedList:string[] = [];
@@ -32,22 +35,7 @@ export default function Setup()
       setAllergies(updatedList);
     }
 
-    function handleClick() {
-        setWizPos(wizPos + 1);
-        if(wizPos<2)
-        {
-          navigate(urls[wizPos]);
-        }
-        else
-        {
-          let userProfile:IProfile = {
-            allergies: allergies,
-            intolerances: []
-          };
-          localStorage.user = JSON.stringify(userProfile);
-          navigate('/translate');
-        }
-    }
+    // TODO: Refactor setup away from wizard into three options, with sub-edit pages
 
     return (
         <div>
@@ -56,7 +44,8 @@ export default function Setup()
                 <Route path={'/allergies'} element={<SetupAllergies allergies={constants.allAllergies} handleChange={handleAllergyChange}/>} />
             </Routes>
             <Outlet />
-            <button onClick={handleClick}>Continue</button>
+            <h1 className="text-2xl font-bold underline">hello</h1>
+            <button onClick={() => updateUser({allergies: ['nuts'], intolerances:[]})}>Continue</button>
         </div>
     )
 }
