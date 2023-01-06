@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import * as constants from './constants';
+import * as constants from './../constants';
 import i18next from 'i18next';
 
 export default function SetupLang()

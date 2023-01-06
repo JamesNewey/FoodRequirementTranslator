@@ -6,9 +6,9 @@ import { UserContextProvider } from './UserContext';
 
 import Translate from './translate';
 import Default from './default';
-import Setup from './setup';
+import Setup from './Setup/Setup';
 
-import IProfile from './common';
+import { IUser } from './common';
 
 function App() {
   return (

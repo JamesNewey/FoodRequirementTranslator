@@ -1,10 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import IProfile from './common';
-
-const defaultUser: IProfile = {
-  allergies: [],
-  intolerances: []
-};
+import { defaultUser, IUser } from './common';
 
 interface Props {
   children: React.ReactNode;
@@ -18,10 +13,10 @@ export interface LayouUserContextProviderProps  {
 
 const UserContextProvider: React.FC<Props> = ({ children }) => {
 
-  const [user, setUser] = useState<IProfile | null>(defaultUser);
+  const [user, setUser] = useState<IUser | null>(defaultUser);
 
   useEffect(() => {
-    let storedUser: IProfile = localStorage.user ? JSON.parse(localStorage.user) : null;
+    let storedUser: IUser = localStorage.user ? JSON.parse(localStorage.user) : null;
 
     if (storedUser) {
       setUser(storedUser)
@@ -32,7 +27,7 @@ const UserContextProvider: React.FC<Props> = ({ children }) => {
     localStorage.setItem('user', JSON.stringify(user))
   }, [user]);
 
-  function updateUser(updatedUser: IProfile) {
+  function updateUser(updatedUser: IUser) {
     setUser(updatedUser);
   }
 

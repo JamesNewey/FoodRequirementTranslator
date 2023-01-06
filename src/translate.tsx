@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import IProfile from './common';
+import { IUser } from './common';
 import * as constants from './constants';
 import { UserContext } from './UserContext';
 
