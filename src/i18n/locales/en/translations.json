@@ -1,5 +1,6 @@
 {
     "chooseLang": "Choose your language",
+    "chooseAllergies": "Choose your allergies",
     "targetLang": "Target language",
     "allergyIntro": "I am allergic to the following ingredients",
     "dairy": "Dairy",
@@ -7,5 +8,9 @@
     "coconut": "Coconuts",
     "nuts": "Nuts",
     "lang_en":"English",
-    "lang_el":"Greek"
+    "lang_el":"Greek",
+    "lactose_conName": "Lactose intolerance",
+    "lactose_conDesc": "",
+    "coeliac_conName": "Coeliac disease",
+    "coeliac_conDesc": ""
 }

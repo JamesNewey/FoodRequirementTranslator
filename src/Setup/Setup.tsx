@@ -1,40 +1,42 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Routes, Route, Link, Outlet, useNavigate, useMatch } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import { UserContext } from '../UserContext';
-import { IUser, defaultUser } from '../common';
+import { IUser } from '../common';
+import Layout from '../Layout';
 
 import SetupSummary from './SetupSummary'
-import SetupLang from './SetupLang';
 import SetupAllergies from './SetupAllergies';
-
-import * as constants from '../constants';
+import SetupIntolerances from './SetupIntolerances';
 
 export default function Setup()
 {
-    const navigate = useNavigate();
-
     // The storage-backed global user
     const { user, updateUser } = useContext(UserContext);
 
     // The in-progress user that will be committed to the above upon completion of setup
     let [setupUser, setSetupUser] = useState(user);
 
+    const navigate = useNavigate();
+
     function updateUserProgress(updatedUser: IUser)
     {
-      console.log('updateUserProgress');
-      console.log(updatedUser);
       setSetupUser(updatedUser);
     }
 
+    function setupComplete()
+    {
+        updateUser(setupUser);
+        navigate("/translate");
+    }
 
     return (
-        <div>
+        <Layout>
             <Routes>
-                <Route path='/' element={<SetupSummary user={user} />} />
-                <Route path='/lang' element={<SetupLang/>} />
+                <Route path='/' element={<SetupSummary user={user} setupComplete={setupComplete} />} />
                 <Route path={'/allergies'} element={<SetupAllergies user={user} updateUserProgress={updateUserProgress}/>} />
+                <Route path={'/intolerances'} element={<SetupIntolerances user={user} updateUserProgress={updateUserProgress}/>} />
             </Routes>
-        </div>
+        </Layout>
     )
 }

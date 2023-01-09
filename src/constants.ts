@@ -3,4 +3,4 @@ export const supportedTargetLanguages:string[] = ['en', 'el'];
 
 export const allAllergies:string[] = ["dairy", "eggs", "coconut", "nuts"];
 
-export const allIntoleranceConditions:string[] = ['lactose','celiac'];
+export const allIntoleranceConditions:string[] = ['lactose','coeliac'];

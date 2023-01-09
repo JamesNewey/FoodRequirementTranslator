@@ -1,5 +1,6 @@
 {
     "chooseLang": "Επιλέξτε τη γλώσσα σας",
+    "chooseAllergies": "Choose your allergies",
     "targetLang": "Γλώσσα-στόχος",
     "allergyIntro": "Είμαι αλλεργικός στα παρακάτω συστατικά",
     "dairy": "Γαλακτοκομείο",
@@ -7,5 +8,9 @@
     "coconut": "Καρύδα",
     "nuts": "ΞΗΡΟΙ ΚΑΡΠΟΙ",
     "lang_en":"Αγγλικά",
-    "lang_el":"Ελληνικά"
+    "lang_el":"Ελληνικά",
+    "lactose_conName": "Δυσανεξία στη λακτόζη",
+    "lactose_conDesc": "",
+    "coeliac_conName": "Δυσανεξία κοιλιοκάκης",
+    "coeliac_conDesc": ""
 }

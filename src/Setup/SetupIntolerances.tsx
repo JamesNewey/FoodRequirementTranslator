@@ -28,7 +28,7 @@ export default function SetupIntolerances(props:ISetupIntolerancesProps)
     } else {
       updatedList = [...user.intolerances.conditions];
       updatedList.splice(updatedList.indexOf(allergy), 1);
-      user.allergies = updatedList;
+      user.intolerances.conditions = updatedList;
     }
     setConditions(updatedList);
 
@@ -45,13 +45,13 @@ export default function SetupIntolerances(props:ISetupIntolerancesProps)
           <div key={index}>
             <label>
             <input value={item} type="checkbox" onChange={handleCheck} defaultChecked={conditions.includes(item)} />
-            <span>{t(item)}</span>
+            <span>{t(item+'_conName')}</span>
             </label>
           </div>
         ))}
       </div>
-      <button onClick={() => { user.intolerances.conditions = conditions; updateUserProgress(user); navigate("/setup")}}>Okay</button>
-      <button onClick={() => navigate("/setup")}>Cancel</button>
+      <button className="btn btn-blue" onClick={() => { user.intolerances.conditions = conditions; updateUserProgress(user); navigate("/setup")}}>Okay</button>
+      <button className="btn btn-blue" onClick={() => navigate("/setup")}>Cancel</button>
     </>
   );
 }

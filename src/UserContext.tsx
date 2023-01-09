@@ -18,16 +18,23 @@ const UserContextProvider: React.FC<Props> = ({ children }) => {
   useEffect(() => {
     let storedUser: IUser = localStorage.user ? JSON.parse(localStorage.user) : null;
 
+    console.log('UserContextProvider [] useEffect, storedUser:');
+    console.log(storedUser);
+
     if (storedUser) {
       setUser(storedUser)
     }
   }, []);
 
   useEffect(() => {
+    console.log('UserContextProvider [user] useEffect, user:');
+    console.log(user);
     localStorage.setItem('user', JSON.stringify(user))
   }, [user]);
 
   function updateUser(updatedUser: IUser) {
+    console.log('UserContext updateUser');
+    console.log(updatedUser);
     setUser(updatedUser);
   }
 
