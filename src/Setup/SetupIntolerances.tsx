@@ -40,7 +40,7 @@ export default function SetupIntolerances(props:ISetupIntolerancesProps)
 
   return (
     <>
-      <div className="checkList">
+      <div className="container">
         {constants.allIntoleranceConditions.map((item, index) => (
           <div key={index}>
             <label>

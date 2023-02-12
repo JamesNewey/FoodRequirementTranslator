@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 // import logo from './logo.svg';
 import './App.css';
 import { UserContextProvider } from './UserContext';
@@ -7,8 +7,6 @@ import { UserContextProvider } from './UserContext';
 import Translate from './translate';
 import Default from './default';
 import Setup from './Setup/Setup';
-
-import { IUser } from './common';
 
 function App() {
   return (

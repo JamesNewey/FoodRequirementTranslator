@@ -16,12 +16,3 @@ export const defaultUser: IUser = {
     allergies: [],
     intolerances: defaultIntolerances
   };
-
-interface IConfiguration {
-    count: number;
-    baseLanguage?: string;
-    userHasAllergies?: boolean;
-    userHasIntolerances?: boolean;
-    allergies: string[];
-    intolerances?: string[];
-  }

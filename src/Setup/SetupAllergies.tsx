@@ -24,11 +24,10 @@ export default function SetupAllergies(props:ISetupAllergiesProps)
   {
     let updatedList:string[] = [];
     if (add) {
-      updatedList = [...user.allergies, allergy];
+      updatedList = [...allergies, allergy];
     } else {
-      updatedList = [...user.allergies];
+      updatedList = [...allergies];
       updatedList.splice(updatedList.indexOf(allergy), 1);
-      user.allergies = updatedList;
     }
     setAllergies(updatedList);
 

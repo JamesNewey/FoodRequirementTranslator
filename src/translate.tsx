@@ -9,9 +9,6 @@ export default function Translate()
 
     const { user } = useContext(UserContext);
 
-    console.log('Translate');
-    console.log(user);
-
     const handleChange = (event:React.ChangeEvent<HTMLSelectElement>) => {
         setLanguage(event.target.value);
       };

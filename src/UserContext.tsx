@@ -12,29 +12,15 @@ export interface LayouUserContextProviderProps  {
 }
 
 const UserContextProvider: React.FC<Props> = ({ children }) => {
+  const storeKey:string = 'user';
 
-  const [user, setUser] = useState<IUser | null>(defaultUser);
-
-  useEffect(() => {
-    let storedUser: IUser = localStorage.user ? JSON.parse(localStorage.user) : null;
-
-    console.log('UserContextProvider [] useEffect, storedUser:');
-    console.log(storedUser);
-
-    if (storedUser) {
-      setUser(storedUser)
-    }
-  }, []);
+  const [user, setUser] = useState<IUser | null>(() => JSON.parse(localStorage.getItem(storeKey)!) || defaultUser);
 
   useEffect(() => {
-    console.log('UserContextProvider [user] useEffect, user:');
-    console.log(user);
-    localStorage.setItem('user', JSON.stringify(user))
+    localStorage.setItem(storeKey, JSON.stringify(user));
   }, [user]);
 
   function updateUser(updatedUser: IUser) {
-    console.log('UserContext updateUser');
-    console.log(updatedUser);
     setUser(updatedUser);
   }
 

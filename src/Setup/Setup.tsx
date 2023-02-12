@@ -26,7 +26,8 @@ export default function Setup()
 
     function setupComplete()
     {
-        updateUser(setupUser);
+        let newUser = JSON.parse(JSON.stringify(setupUser));
+        updateUser(newUser);
         navigate("/translate");
     }
 
